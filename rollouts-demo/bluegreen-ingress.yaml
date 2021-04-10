@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: bluegreen-demo
+spec:
+  # Request to path under /stable is routed to the stable version.
+  rules:
+  - host: blue-green.example.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: bluegreen-demo
+          servicePort: 80
+
+  # Request to path under /testing is routed to the testing version.
+  - host: blue-green-preview.example.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: bluegreen-demo-preview
+          servicePort: 80
