@@ -5,3 +5,4 @@ resources:
   - base/argo-cd.yaml
   - base/parent.yaml
   - base/argo-rollouts.yaml
+  - base/sealed-secrets.yaml
